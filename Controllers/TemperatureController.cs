@@ -7,31 +7,27 @@ using Microsoft.Extensions.Logging;
 
 namespace TemperatureAPI.Controllers
 {
-    [ApiController]
-    [Route("[controller]")]
-    public class TemperatureController : ControllerBase
+  [ApiController]
+  [Route("[controller]")]
+  public class TemperatureController : ControllerBase
+  {
+    private readonly ILogger<TemperatureController> _logger;
+
+    public TemperatureController(ILogger<TemperatureController> logger)
     {
-        private static readonly string[] Summaries = new[]
-        {
-            "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
-        };
-
-        private readonly ILogger<TemperatureController> _logger;
-
-        public TemperatureController(ILogger<TemperatureController> logger)
-        {
-            _logger = logger;
-        }
-
-        [HttpGet]
-        public ActionResult<Temperature> Get()
-        {
-            var temperature = new Temperature()
-            {
-                Text = "🌻"
-            };
-
-            return Ok(temperature);
-        }
+      _logger = logger;
     }
+
+    [HttpGet("{city}")]
+    public ActionResult<Temperature> Get(string city)
+    {
+      Console.WriteLine(city);
+      var temperature = new Temperature()
+      {
+        Text = "🌻"
+      };
+
+      return Ok(temperature);
+    }
+  }
 }
