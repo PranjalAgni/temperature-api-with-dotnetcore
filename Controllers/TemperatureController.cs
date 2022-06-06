@@ -21,7 +21,7 @@ namespace TemperatureAPI.Controllers
     [HttpGet("{city}")]
     public ActionResult<Temperature> Get(string city)
     {
-      Console.WriteLine(city);
+      Console.WriteLine("City name %s= ", city);
       var temperature = new Temperature()
       {
         Text = "🌻"
