@@ -24,7 +24,7 @@ namespace TemperatureAPI.Controllers
       Console.WriteLine("City name %s= ", city);
       var temperature = new Temperature()
       {
-        Text = "🌻"
+        Text = "☁️🌤️⛈️"
       };
 
       return Ok(temperature);
